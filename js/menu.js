@@ -403,7 +403,7 @@ function getCategoryLabel(category) {
 }
 
 // Function to render menu items
-function renderMenuItems(category = 'all') {
+function renderMenuItems(category = 'plates') {
   const menuContainer = document.getElementById('menu-container');
   
   // Add gentle fade-out animation before clearing
@@ -415,13 +415,8 @@ function renderMenuItems(category = 'all') {
   setTimeout(() => {
     menuContainer.innerHTML = '';
     
-    // Get unique categories if showing all
-    let categories = [];
-    if (category === 'all') {
-      categories = [...new Set(menuItems.map(item => item.category))];
-    } else {
-      categories = [category];
-    }
+    // Only show the selected category
+    let categories = [category];
     
     // Create sections for each category
     categories.forEach(cat => {
@@ -485,8 +480,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuContainer = document.getElementById('menu-container');
   menuContainer.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   
-  // Render all menu items initially
-  renderMenuItems();
+  // Render plates category items initially
+  renderMenuItems('plates');
 
   // Add event listeners to category tabs
   const categoryTabs = document.querySelectorAll('.category-tab');
