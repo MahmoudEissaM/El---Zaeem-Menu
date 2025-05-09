@@ -156,7 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (breadcrumbHome) breadcrumbHome.textContent = translations['breadcrumb-home'][lang];
     
     if (breadcrumbCurrentPage) {
-      const currentPage = window.location.pathname.includes('index.html') ? 'breadcrumb-menu' : 'breadcrumb-home';
+      // Check if we're on the menu page
+      const currentPage = window.location.pathname.includes('menu.html') ? 'breadcrumb-menu' : 'breadcrumb-home';
       breadcrumbCurrentPage.textContent = translations[currentPage][lang];
     }
     
