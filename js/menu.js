@@ -476,30 +476,7 @@ function renderMenuItems(category = 'plates') {
 
 // Initialize menu
 document.addEventListener('DOMContentLoaded', () => {
-  // Add scroll event listener for compact header
-  const header = document.querySelector('header');
-  window.addEventListener('scroll', () => {
-    // Only apply compact header on small screens
-    if (window.innerWidth <= 768) {
-      if (window.scrollY > 100) {
-        header.classList.add('compact');
-      } else {
-        header.classList.remove('compact');
-      }
-    } else {
-      // Always remove compact class on larger screens
-      header.classList.remove('compact');
-    }
-  });
-  
-  // Also check on window resize
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      header.classList.remove('compact');
-    } else if (window.innerWidth <= 768 && window.scrollY > 100) {
-      header.classList.add('compact');
-    }
-  });
+  // Header remains the same size on scroll - removed scroll event listener
   
   // Add initial styles to container for animations
   const menuContainer = document.getElementById('menu-container');

@@ -39,40 +39,7 @@ header {
   transition: all 0.3s ease;
 }
 
-header.compact {
-  padding: 8px 0;
-}
-
-header.compact .logo,
-header.compact .contact,
-header.compact .lang-toggle {
-  display: none;
-}
-
-header.compact .header-content {
-  justify-content: center;
-}
-
-header.compact .nav-links {
-  margin: 0;
-}
-
-/* Only apply compact header on small screens */
-@media (min-width: 769px) {
-  header.compact {
-    padding: 15px 0;
-  }
-  
-  header.compact .logo,
-  header.compact .contact,
-  header.compact .lang-toggle {
-    display: flex;
-  }
-  
-  header.compact .header-content {
-    justify-content: space-between;
-  }
-}
+/* Removed compact header styles */
 
 .header-content {
   display: flex;
@@ -489,7 +456,7 @@ header.compact .nav-links {
   /* Make category tabs sticky only on small screens */
   .category-tabs {
     position: sticky;
-    top: 70px; /* Height of compact header */
+    top: 100px; /* Height of regular header */
   }
 }
 
