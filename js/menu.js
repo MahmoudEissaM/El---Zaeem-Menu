@@ -4,7 +4,7 @@ const menuItems = [
   { 
     id: 1, 
     category: 'plates', 
-    nameAr: 'الزعيم فول', 
+    nameAr: '  فول الزيعم', 
     nameEn: 'Foul El Zaeem',
     descriptionAr: 'فول مصري مطهو على الطريقة التقليدية',
     descriptionEn: 'Egyptian beans cooked in traditional way',
