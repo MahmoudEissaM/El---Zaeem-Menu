@@ -395,9 +395,9 @@ function getIconColor(category) {
 // Function to get category label in Arabic
 function getCategoryLabel(category) {
   switch(category) {
-    case 'plates': return 'علب وأصناف';
-    case 'sides': return 'أصناف جانبية';
-    case 'sandwiches': return 'سندوتشات';
+    case 'plates': return 'الأطباق';
+    case 'sides': return 'الجانبية';
+    case 'sandwiches': return 'السندوتشات';
     default: return '';
   }
 }
@@ -476,34 +476,62 @@ function renderMenuItems(category = 'plates') {
 
 // Initialize menu
 document.addEventListener('DOMContentLoaded', () => {
+  // Add scroll event listener for compact header
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => {
+    // Only apply compact header on small screens
+    if (window.innerWidth <= 768) {
+      if (window.scrollY > 100) {
+        header.classList.add('compact');
+      } else {
+        header.classList.remove('compact');
+      }
+    } else {
+      // Always remove compact class on larger screens
+      header.classList.remove('compact');
+    }
+  });
+  
+  // Also check on window resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      header.classList.remove('compact');
+    } else if (window.innerWidth <= 768 && window.scrollY > 100) {
+      header.classList.add('compact');
+    }
+  });
+  
   // Add initial styles to container for animations
   const menuContainer = document.getElementById('menu-container');
   menuContainer.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   
-  // Render plates category items initially
+  // Initial render with plates category
   renderMenuItems('plates');
-
-  // Add event listeners to category tabs
-  const categoryTabs = document.querySelectorAll('.category-tab');
-  categoryTabs.forEach(tab => {
+  
+  // Ensure category tabs are visible on mobile
+  const categoryTabs = document.querySelector('.category-tabs');
+  if (categoryTabs) {
+    // Add horizontal scroll indicator for mobile
+    const tabsContainer = categoryTabs.parentElement;
+    if (categoryTabs.scrollWidth > categoryTabs.clientWidth) {
+      categoryTabs.classList.add('scrollable');
+    }
+  }
+  
+  // Add click event listeners to category tabs
+  document.querySelectorAll('.category-tab').forEach(tab => {
     tab.addEventListener('click', () => {
-      // If already active, don't do anything
-      if (tab.classList.contains('active')) return;
-      
-      // Add smoother click effect
-      tab.style.transform = 'scale(0.97)';
-      tab.style.transition = 'transform 0.2s cubic-bezier(0.25, 0.1, 0.25, 1)';
-      setTimeout(() => {
-        tab.style.transform = 'scale(1)';
-      }, 120);
-      
-      // Update active tab with animation
-      categoryTabs.forEach(t => {
+      // Remove active class from all tabs
+      document.querySelectorAll('.category-tab').forEach(t => {
         t.classList.remove('active');
         t.style.transition = 'all 0.3s ease';
       });
       
+      // Add active class to clicked tab
       tab.classList.add('active');
+      
+      // Scroll tab into view (center)
+      tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       
       // Render menu items for selected category
       const category = tab.getAttribute('data-category');
