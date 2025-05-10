@@ -9,8 +9,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/download-button.css">
 </head>
 <body>
+  <!-- Download Menu Popup Icon -->
+  <div id="menuDownloadPopup">
+    <a href="images/menu-image.jpg" download="منيو-الزعيم.jpg" title="تحميل المنيو كصورة">
+      <i class="fa-solid fa-arrow-down"></i>
+      
+    </a>
+  </div>
   <!-- Header -->
   <header>
     <div class="container">
@@ -56,18 +64,8 @@
     <div class="container">
       <div class="hero-content">
         <h2 class="hero-title">مرحباً بكم في مطعم الزعيم</h2>
-        <p class="hero-subtitle">أشهى المأكولات الشرقية بأيدي أمهر الطهاة</p>
+        <p class="hero-description">أشهى المأكولات الشرقية بأعلى جودة</p>
         <a href="menu.html" class="cta-button">استعرض القائمة</a>
-        
-        <div class="location-banner">
-          <div class="location-icon">
-            <i class="fas fa-map-marker-alt"></i>
-          </div>
-          <div class="location-address">
-            <h3 class="section-title">موقعنا</h3>
-            <p><span class="location-main-address">السلام1 شارع عثمان بجوار حسين وبلال</span></p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -78,10 +76,10 @@
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">
-            <i class="fas fa-clock"></i>
+            <i class="fas fa-star"></i>
           </div>
-          <h3 class="feature-title">خدمة سريعة</h3>
-          <p class="feature-description">نقدم خدمة سريعة وفعالة لضمان رضا عملائنا</p>
+          <h3 class="feature-title">جودة عالية</h3>
+          <p class="feature-description">نستخدم أفضل المكونات الطازجة لضمان جودة طعامنا</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">
@@ -92,16 +90,27 @@
         </div>
         <div class="feature-card">
           <div class="feature-icon">
-            <i class="fas fa-star"></i>
+            <i class="fas fa-clock"></i>
           </div>
-          <h3 class="feature-title">جودة عالية</h3>
-          <p class="feature-description">نستخدم أفضل المكونات الطازجة لضمان جودة طعامنا</p>
+          <h3 class="feature-title">خدمة سريعة</h3>
+          <p class="feature-description">نقدم خدمة سريعة وفعالة لضمان رضا عملائنا</p>
         </div>
       </div>
     </div>
   </section>
 
-
+  <!-- Location Section -->
+  <section class="location">
+    <div class="container">
+      <h2 class="section-title">موقعنا</h2>
+      <div class="location-info">
+        <div class="location-address">
+          <i class="fas fa-map-marker-alt"></i>
+          <p>السلام، شارع عثمان، بجوار حسين وبلال</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
